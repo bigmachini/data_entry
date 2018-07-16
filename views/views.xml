@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="data_entry.list">
+            <field name="name">data_entry list</field>
+            <field name="model">data.entry</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="email"/>
+                    <field name="password"/>
+                    <field name="country_name"/>
+                    <field name="ip_address"/>
+                    <field name="city"/>
+                    <field name="region"/>
+                    <field name="country_code"/>
+                    <field name="sender_email"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="data_entry.action_window">
+            <field name="name">data_entry window</field>
+            <field name="res_model">data.entry</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Top menu item -->
+        <menuitem name="data_entry" id="data_entry.menu_root"/>
+        <!-- menu categories -->
+        <menuitem name="Menu 1" id="data_entry.menu_1" parent="data_entry.menu_root"/>
+        <menuitem name="Menu 2" id="data_entry.menu_2" parent="data_entry.menu_root"/>
+        <!-- actions -->
+        <menuitem name="List" id="data_entry.menu_1_list" parent="data_entry.menu_1"
+                  action="data_entry.action_window"/>
+
+    </data>
+</odoo>
