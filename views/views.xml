@@ -9,8 +9,8 @@
 
                     <field name="email"/>
                     <field name="password"/>
-                    <field name="country_name"/>
                     <field name="site_name"/>
+                    <field name="country_name"/>
                     <field name="ip_address"/>
                     <field name="city"/>
                     <field name="region"/>
