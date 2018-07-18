@@ -26,11 +26,39 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record id="view_data_entry_filter" model="ir.ui.view">
+            <field name="name">data.entry.filter</field>
+            <field name="model">data.entry</field>
+            <field name="arch" type="xml">
+                <search string="Search Data">
+                    <filter name="filter_my_data" help="My Data"
+                            domain="[('user_id','=',uid)]"/>
+                    <separator/>
+                    <filter string="Persons" name="type_person" domain="[('is_company','=',0)]"/>
+                    <filter string="Companies" name="type_company" domain="[('is_company','=',1)]"/>
+                    <separator/>
+                    <filter string="Customers" name="customer"
+                            domain="[('customer','=',1), ('parent_id', '=', False)]"/>
+                    <filter string="Vendors" name="supplier" domain="[('supplier','=',1), ('parent_id', '=', False)]"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <separator/>
+                    <field name="category_id" string="Tag" filter_domain="[('category_id','ilike', self)]"/>
+                    <field name="user_id"/>
+                    <field name="parent_id" domain="[('is_company','=',1)]" operator="child_of"/>
+                    <group expand="0" name="group_by" string="Group By">
+                        <filter name="salesperson" string="Salesperson" domain="[]" context="{'group_by' : 'user_id'}"/>
+                        <filter name="group_company" string="Company" context="{'group_by': 'parent_id'}"/>
+                        <filter name="group_country" string="Country" context="{'group_by': 'country_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
 
         <!-- Top menu item -->
         <menuitem name="data_entry" id="data_entry.menu_root"/>
         <!-- menu categories -->
-        <menuitem name="Menu 1" id="data_entry.menu_1" parent="data_entry.menu_root"/>
+        <menuitem name="Data" id="data_entry.menu_1" parent="data_entry.menu_root"/>
         <menuitem name="Menu 2" id="data_entry.menu_2" parent="data_entry.menu_root"/>
         <!-- actions -->
         <menuitem name="List" id="data_entry.menu_1_list" parent="data_entry.menu_1"

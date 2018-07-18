@@ -15,6 +15,7 @@ class DataEntry(models.Model):
     region = fields.Char()
     country_code = fields.Char()
     sender_email = fields.Char()
+    site_name = fields.Char()
 
     @api.multi
     def update_data(self, vals):
