@@ -26,7 +26,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record id="view_data_entry_filter" model="ir.ui.view">
+    <!--    <record id="view_data_entry_filter" model="ir.ui.view">
             <field name="name">data.entry.filter</field>
             <field name="model">data.entry</field>
             <field name="arch" type="xml">
@@ -52,7 +52,7 @@
                     </group>
                 </search>
             </field>
-        </record>
+        </record>-->
 
 
         <!-- Top menu item -->
