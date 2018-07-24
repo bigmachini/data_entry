@@ -10,11 +10,9 @@
                     <field name="email"/>
                     <field name="password"/>
                     <field name="site_name"/>
-                    <field name="country_name"/>
                     <field name="ip_address"/>
                     <field name="city"/>
                     <field name="region"/>
-                    <field name="country_code"/>
                     <field name="sender_email"/>
                 </tree>
             </field>
